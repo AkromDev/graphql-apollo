@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 const app = express();
 
 mongoose
-  .connect("mongodb://akromjon:akrom96@ds043158.mlab.com:43158/graphqlproject")
+  .connect("mongodb://akrom:akrom1996@ds135179.mlab.com:35179/books")
   .then(() => console.log("conneted to database"));
 
 const server = new ApolloServer({
