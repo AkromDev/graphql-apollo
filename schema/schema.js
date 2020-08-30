@@ -1,7 +1,6 @@
 const graphql = require('graphql');
 const Book = require('../models/book');
 const Author = require('../models/author');
-const _ = require('lodash');
 
 const {
     GraphQLObjectType,
@@ -16,9 +15,10 @@ const {
 const BookType = new GraphQLObjectType({
     name: 'Book',
     fields: ( ) => ({
-        id: { type: GraphQLID },
+        _id: { type: GraphQLID },
         name: { type: GraphQLString },
         genre: { type: GraphQLString },
+        authorId: { type: GraphQLID },
         author: {
             type: AuthorType,
             resolve(parent, args){
@@ -31,7 +31,7 @@ const BookType = new GraphQLObjectType({
 const AuthorType = new GraphQLObjectType({
     name: 'Author',
     fields: ( ) => ({
-        id: { type: GraphQLID },
+        _id: { type: GraphQLID },
         name: { type: GraphQLString },
         age: { type: GraphQLInt },
         books: {
