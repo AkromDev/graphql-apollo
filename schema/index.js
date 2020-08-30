@@ -1,4 +1,4 @@
-const { gql } = require("apollo-server-express");
+const gql  = require("graphql-tag");
 module.exports = gql`
   type Query {
     book(id: ID!): Book!
@@ -11,11 +11,13 @@ module.exports = gql`
     addBook(name: String!, genre: String!, authorId: ID!): Book!
   }
   type Author {
+    _id: ID!
     name: String!
     age: Int!
     books: [Book!]!
   }
   type Book {
+    _id: ID!
     name: String!
     genre: String!
     authorId: ID!
